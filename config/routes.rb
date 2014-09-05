@@ -55,8 +55,9 @@ Rails.application.routes.draw do
   #   end
 
   controller :sessions do
-    get 'login' => :new
-    get 'auth/shopify/callback' => :show
+    get 'import' => :new
+    get 'login' => :show
+    #get 'auth/shopify/callback' => :show
     get 'upload' => :upload
     
   end
@@ -71,6 +72,7 @@ Rails.application.routes.draw do
   get 'form_page' => "home#form_page"
   post 'form_page' => "home#form_page"
   get 'error' => 'home#error'
+  get 'login' => 'home#regular_app_page'
 
   root :to => 'home#index'
   

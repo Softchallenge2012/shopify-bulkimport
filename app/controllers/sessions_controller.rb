@@ -1,34 +1,36 @@
 class SessionsController < ApplicationController
   layout :false
   
+  @key=""
+  @password=""
+  @shop=""
   
   
   def upload
     
-    ShopifyAPI::Base.site = "https://ac99d7fc01be444346f9274b4e63be6e:93b1db77c177019fb19ef7a26867aba5@orthopedist-shop.myshopify.com/admin"
+    #ShopifyAPI::Base.site = "https://ac99d7fc01be444346f9274b4e63be6e:93b1db77c177019fb19ef7a26867aba5@orthopedist-shop.myshopify.com/admin"
 
-    products = ShopifyAPI::Product.find(:all,:params => {:vendor => 'MS Test', :limit => 250})
+    #ShopifyAPI::Base.site = "https://#{@key}:#{@password}@#{@shop}/admin"
+
+    #products = ShopifyAPI::Product.find(:all,:params => {:vendor => 'MS Test', :limit => 250})
 
 
     description = params[:description]
-    inventory_variants = params[:inventory_variants];
-    imagefile = params[:filepath]
+    type = params[:type]
+    vendor = params[:vendor];
+    #imagefile = params[:filepath]
 
-    collection = params[:collection]
-    tag = params[:tag]
+
+    distributedsite = params[:distributedsite]
+    localsite = params[:localsite]
     
-    puts("description = #{description}")
-    puts("inventory and variants = #{inventory_variants}")
-    puts("collection = #{collection}")
-    puts("tag = #{tag}")
-    
-    var = "start using shopify api"
-    puts var
+    price = params[:price]
+    sku = params[:sku]
 
 
 
-    absolutedir = params[:absolutepath];
-    sourcedir='c:\Users\slu_000\Desktop'
+    absolutedir = params[:distributedsite];
+    sourcedir=localsite
     
     puts("sourcedir = #{sourcedir}")
     Dir.foreach(sourcedir){
@@ -51,16 +53,7 @@ class SessionsController < ApplicationController
          if entry.include?s then
             puts("#{entry} is a file")
             
-       
-
-    description = params[:description]
-    type = params[:type];
-    vendor = params[:vendor];
-    sku = params[:sku];
-    price = params[:price];
-    collection = params[:collection]
-    tag = params[:tag]
-    
+  
     title = f.to_str
     title = title.chomp(s)
     puts("new title is #{title}");    
@@ -123,75 +116,24 @@ class SessionsController < ApplicationController
 
   def new
    
-   sourcedir='c:\Users\slu_000\Desktop'
-   # get directory path and list all of the image files
-   Dir.foreach(sourcedir){
-     
-     |f|
-     
-     entry = "#{sourcedir}\\#{f}"
-     
-     
-     
-     if File.directory?(entry) then
-       
-       puts("#{entry} is a directory")
-     else 
-        for s in ['.jpg', '.png', '.bmp'] do   
-          
-           
-         
-         if entry.include?s then
-            puts("#{entry} is a file")
-            end
-         end
-      
-      
-      end
-      };
-      
-      end
+   
+    if params[:key] != nil then
+    _key = params[:key]
+    _password = params[:password]
+    _shop = params[:shop]
+    #ShopifyAPI::Base.site = "https://ac99d7fc01be444346f9274b4e63be6e:93b1db77c177019fb19ef7a26867aba5@orthopedist-shop.myshopify.com/admin"
+
+    ShopifyAPI::Base.site = "https://#{_key}:#{_password}@#{_shop}/admin"
+
+    products = ShopifyAPI::Product.find(:all,:params => {:vendor => 'MS Test', :limit => 250})
+
+end
+
+   end
 
 
   def show
-    description = params[:description]
-    inventory_variants = params[:inventory_variants];
     
-
-    collection = params[:collection]
-    tag = params[:tag]
-    
-    puts("description = #{description}")
-    puts("inventory and variants = #{inventory_variants}")
-    puts("collection = #{collection}")
-    puts("tag = #{tag}")
-    
-    sourcedir = dirname(params[:filepath])
-    Dir.foreach(sourcedir){
-     
-    
-     
-     entry =  "#{sourcedir}\\#{f}"
-     
-     
-     
-     if File.directory?(entry) then
-       
-       puts("#{entry} is a directory")
-     else 
-        for s in ['.jpg', '.png', '.bmp'] do   
-          
-           
-         
-         if entry.include?s then
-            puts("#{entry} is a file")
-            end
-         end
-      
-      
-      end
-      
-    };
     
   end
   

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Import Page</title>
+<script>
+function check()
+{   
+	var shop = document.getElementById('shop');
+	var key = document.getElementById('key');
+	var password = document.getElementById('password');
+	
+	if(shop.value=="" || key.value=="" || password.value==""){
+		
+		alert("You have to specify your shopify account information");
+		return false;
+	}
+	return true;
+	
+}
+</script>
+<script type="text/javascript">
+			function formValidation(){
+				var selectForm = document.authform; // Selecting Form
+				var formLength = selectForm.elements.length; // getting total no. of elements in it
+				for(var x=0; x<=formLength; x++){
+					var usingLoop = selectForm.elements[x]; // 
+					if(usingLoop.value == 0){ // Checking throug Loop
+						return false;
+					}
+				}
+				
+				selectForm.submit();
+				return true;
+			}
+		</script>
+
+
+</head>
+<body>
+
+  <h2>Bulk Products Import</h2>
+
+  <form method="GET" id="authform" action="import" >
+    
+   
+
+<div id="container" style="width:500px">
+	
+	    <div style="width:450px">
+	    <label>store url</label>
+	    <input type="text" id="shop" name="shop" placeholder="mystore.shopify.com"/>
+    	<hr>
+    </div>
+
+    <div style="width:450px">
+	    <label>API_KEY</label>
+	    <input type="text" id-"key" name="key" placeholder="2345678"/>
+    	<hr>
+    </div>
+    
+    <div style="width:450px">
+	    <label>API_PASSWORD</label>
+	    <input type="password" id="password" name="password" placeholder="2345678"/>
+    	<hr>
+    </div>
+
+
+	<div style="width:450px">
+	    <input type="submit" name="authorize"  value="authorization" onClick='return check(); return false;'/>
+    	<hr>
+    </div>
+
+
+	
+
+    	</div>
+ </form>
+</body>
+</html>
