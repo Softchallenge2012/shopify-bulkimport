@@ -24,5 +24,27 @@ Things you may want to cover:
 * ...
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+How to install
+
+1. Download from https://github.com/shenlu2011/shopify-bulkimport
+2. extract to wherever you what
+3. work in the app folder
+3.1 $cd [\path\to\app\folder\]shopify-bulkimport\
+3.2 $bundle install  // to install of the gems
+3.3 $rails generate generator shopify-bulkimport
+3.4 $rails server
+3.5 open internet explorer and connect to localhost:3000/login
+
+How to use
+
+In order to use private app, you need to create a private app on your shopify store and then you will have API_KEY, PASSWORD, and so on. You will use API_KEY, PASSWORD to access to your shopify store data. You can name your private app whatever you want. If you can get the API_KEY and PASSWORD, you can access to the shopify store data.
+
+In order to upload images, you need to have a online space and upload to shopify from the online space, which is the way shopify works. I used my webhosting to test the app. It works.
+
+1. upload images to your distributed site
+2. enter the distributed site image folder address into "distributedsite textfield:
+enter your local image folder absolute path into "localsite textfield"
+3. fill out other fields.
+
+
+
