@@ -4,7 +4,8 @@ This README would normally document whatever steps are necessary to get the
 application up and running.
 
 ![Screenshot](GitHub-Mark.png)
-![Alt text](./GitHub-Mark.png?raw=true "Title")
+
+![Alt text](GitHub-Mark.png?raw=true "Title")
 
 Things you may want to cover:
 
