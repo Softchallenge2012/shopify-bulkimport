@@ -7,7 +7,7 @@ application up and running.
 
 ![Alt text](GitHub-Mark.png?raw=true "Title")
 
-![alt text](https://github.com/shenlu2011/shopify-bulkimport/GitHub-Mark.png?raw=true)
+![plot](https://github.com/shenlu2011/shopify-bulkimport/GitHub-Mark.png?raw=true)
 
 Things you may want to cover:
 
